@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<title>The Community Agency Contact Form</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
 		<style type="text/css">
 			div.form_block form{
 				clear: both;
@@ -75,14 +75,28 @@
 								<div class="form-group col-sm-12">
 									<label class="field_label" for="first_name">First Name *</label>
 									<input type="text" class="form-control" required="required" name="first_name" placeholder="Enter First name">
+                                </div>
+                                <div class="form-group col-sm-12">
+									<label class="field_label" for="last_name">Last Name *</label>
+									<input type="text" class="form-control" required="required" name="last_name" placeholder="Enter Last Name">
 								</div>
+								<div class="form-group col-sm-12">
+									<label class="field_label" for="work_email">Work Email *</label>
+									<input type="email" class="form-control" required="required" name="work_email" placeholder="Work Email">
+                                </div>
+                                <div class="form-group col-sm-12">
+									<label class="field_label" for="phone">Phone</label>
+									<input type="text" class="form-control" required="required" name="phone" placeholder="Phone Number (Optional)">
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-6">
 								<div class="form-group col-sm-12">
 									<label class="field_label" for="title">Title</label>
 									<input type="text" class="form-control" required="required" name="title" placeholder="Title">
 								</div>
 								<div class="form-group col-sm-12">
-									<label class="field_label" for="work_email">Work Email *</label>
-									<input type="email" class="form-control" required="required" name="work_email" placeholder="Work Email">
+									<label class="field_label" for="company">Company *</label>
+									<input type="text" class="form-control" required="required" name="company" placeholder="Company">
 								</div>
 								<div class="form-group col-sm-12">
 									<label class="field_label" for="Country">Country</label>
@@ -159,20 +173,6 @@
 										<option data-city="washington" value="136970452612">Washington D.C</option>
 										<option data-city="1zurich" value="35560453993">Zurich</option>
 									</select>
-								</div>
-							</div>
-							<div class="col-sm-12 col-md-6">
-								<div class="form-group col-sm-12">
-									<label class="field_label" for="last_name">Last Name *</label>
-									<input type="text" class="form-control" required="required" name="last_name" placeholder="Enter Last Name">
-								</div>
-								<div class="form-group col-sm-12">
-									<label class="field_label" for="company">Company *</label>
-									<input type="text" class="form-control" required="required" name="company" placeholder="Company">
-								</div>
-								<div class="form-group col-sm-12">
-									<label class="field_label" for="phone">Phone</label>
-									<input type="text" class="form-control" required="required" name="phone" placeholder="Phone Number (Optional)">
 								</div>
 								<div class="form-group col-sm-12">
 									<label class="field_label" for="Reason_for_Contacting">Reason for Contacting *</label>
