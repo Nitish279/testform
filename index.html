@@ -64,6 +64,9 @@
 				color: #49C6EA;
 				background-color: transparent;
 			}
+            .help-block.error{
+                color: red;
+            }
 		</style>
 	</head>
 	<body>
@@ -103,9 +106,9 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-sm-12 col-sm-6">
-                                    <label class="field_label" for="Reason_for_Contacting">Country</label>
-                                    <select id="Country" name="Country" class="form-control" required="required">
-                                        <option selected>Choose Country...</option>
+                                    <label class="field_label" for="country">country</label>
+                                    <select id="country" name="country" class="form-control" required="required">
+                                        <option selected>Choose country...</option>
                                         <option data-city="3snna" value="28260453993">All N. America Cities</option>
                                         <option data-city="84651" value="28160453993">All Europe Cities</option>
                                         <option data-city="842" value="6160453993">All India Cities</option>
@@ -179,8 +182,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-12 col-sm-6">
-                                    <label class="field_label" for="Reason_for_Contacting">Reason for Contacting *</label>
-                                    <select id="Reason_for_Contacting" name="Reason_for_Contacting" class="form-control" required="required">
+                                    <label class="field_label" for="reason_for_contacting">Reason for Contacting *</label>
+                                    <select id="reason_for_contacting" name="reason_for_contacting" class="form-control" required="required">
                                         <option value="" selected>Reason For Contacting...</option>
                                         <option value="Career Opportunitie">Career Opportunities</option>
                                         <option value="Media Relations">Media Relations</option>
@@ -226,8 +229,8 @@
                         'company': $('input[name=company]').val(),
                         'title': $('input[name=title]').val(),
                         'phone': $('input[name=phone]').val(),
-                        'Country': $('select[name=first_name]').val(),
-                        'Reason_for_Contacting': $('select[name=Reason_for_Contacting]').val(),
+                        'country': $('select[name=first_name]').val(),
+                        'reason_for_contacting': $('select[name=reason_for_contacting]').val(),
                         'comments_and_inquiries': $('textarea[name=comments_and_inquiries]').val()
                     };
                     console.log(formData);
@@ -239,7 +242,7 @@
                         first_name: "required",
                         last_name: "required",
                         company: "required",
-                        Reason_for_Contacting: "required",
+                        reason_for_contacting: "required",
                         comments_and_inquiries: {
                             required: true,
                             minlength: 10
@@ -253,7 +256,7 @@
                         first_name: "Please enter your First Name",
                         last_name: "Please enter your Last Name",
                         company: "Please enter your Company Name",
-                        Reason_for_Contacting: "Please select reason for contacting",
+                        reason_for_contacting: "Please select reason for contacting",
                         comments_and_inquiries: {
                             required: "Comment is required",
                             minlength: "Your Comment must be of least 10 characters"
