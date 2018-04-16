@@ -42,7 +42,7 @@
 				letter-spacing: 1px;
 			}
 
-			div.form_block button.custom_btn {
+			div.form_block .custom_btn {
 				width: auto;
 				height: auto;
 				margin: 20px auto 0;
@@ -60,7 +60,7 @@
 				cursor: pointer;
 			}
 
-			div.form_block button.custom_btn:hover {
+			div.form_block .custom_btn:hover {
 				color: #49C6EA;
 				background-color: transparent;
 			}
@@ -70,41 +70,41 @@
 		<div class="container-fluid">
 			<div class="row">
 					<div class="form_block">
-                        <form action="https://go.pardot.com/l/136951/2018-03-07/2x7p3y" method="post">
+                        <form class="sap_test_form" id="testForm" method="post" action="https://go.pardot.com/l/136951/2018-03-07/2x7p3y">
                             <div class="form-row">
                                 <div class="form-group col-sm-12 col-sm-6">
                                     <label class="field_label" for="first_name">First Name *</label>
-                                    <input type="text" class="form-control" required="required" name="first_name" placeholder="Enter First name">
+                                    <input type="text" class="form-control" required="required" id="first_name" name="first_name" placeholder="Enter First name">
                                 </div>
                                 <div class="form-group col-sm-12 col-sm-6">
                                     <label class="field_label" for="last_name">Last Name *</label>
-                                    <input type="text" class="form-control" required="required" name="last_name" placeholder="Enter Last Name">
+                                    <input type="text" class="form-control" required="required" id="last_name" name="last_name" placeholder="Enter Last Name">
                                 </div>
                             </div>
 							<div class="form-row">
                                 <div class="form-group col-sm-12 col-sm-6">
                                     <label class="field_label" for="company">Company *</label>
-                                    <input type="text" class="form-control" required="required" name="company" placeholder="Company">
+                                    <input type="text" class="form-control" required="required" id="company" name="company" placeholder="Company">
                                 </div>
                                 <div class="form-group col-sm-12 col-sm-6">
-                                    <label class="field_label" for="title">Title</label>
-									<input type="text" class="form-control" required="required" name="title" placeholder="Title">
+                                    <label class="field_label" for="work_email">Work Email *</label>
+                                    <input type="email" class="form-control" required="required" id="work_email" name="work_email" placeholder="Work Email">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-sm-12 col-sm-6">
-                                    <label class="field_label" for="work_email">Work Email *</label>
-                                    <input type="email" class="form-control" required="required" name="work_email" placeholder="Work Email">
+                                    <label class="field_label" for="title">Title</label>
+									<input type="text" class="form-control" id="title" name="title" placeholder="Title">
                                 </div>
                                 <div class="form-group col-sm-12 col-sm-6">
                                     <label class="field_label" for="phone">Phone</label>
-                                    <input type="text" class="form-control" required="required" name="phone" placeholder="Phone Number (Optional)">
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number (Optional)">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-sm-12 col-sm-6">
-                                    <label class="field_label" for="Country">Country</label>
-                                    <select name="Country" class="form-control" required="required">
+                                    <label class="field_label" for="Reason_for_Contacting">Country</label>
+                                    <select id="Country" name="Country" class="form-control" required="required">
                                         <option selected>Choose Country...</option>
                                         <option data-city="3snna" value="28260453993">All N. America Cities</option>
                                         <option data-city="84651" value="28160453993">All Europe Cities</option>
@@ -180,8 +180,8 @@
                                 </div>
                                 <div class="form-group col-sm-12 col-sm-6">
                                     <label class="field_label" for="Reason_for_Contacting">Reason for Contacting *</label>
-                                    <select name="Reason_for_Contacting" class="form-control" required="required">
-                                        <option selected>Reason For Contacting...</option>
+                                    <select id="Reason_for_Contacting" name="Reason_for_Contacting" class="form-control" required="required">
+                                        <option value="" selected>Reason For Contacting...</option>
                                         <option value="Career Opportunitie">Career Opportunities</option>
                                         <option value="Media Relations">Media Relations</option>
                                         <option value="New Business">New Business</option>
@@ -193,19 +193,92 @@
 							<div class="form-row">
                                 <div class="form-group col-sm-12">
                                     <label class="field_label" for="comments_and_inquiries">Comments and Inquiries</label>
-                                    <textarea class="form-control" required="required" name="comments_and_inquiries" rows="3"></textarea>
+                                    <textarea class="form-control" required="required" id="comments_and_inquiries" name="comments_and_inquiries" rows="3"></textarea>
                                 </div>
 							</div>
 							<div class="form-row">
 								<div class="col-sm-5 p-init"></div>
 								<div class="col-sm-2 p-init text-center">
-									<button type="submit" class="custom_btn">Submit</button>
+                                    <!-- <button type="submit" class="">Submit</button> -->
+                                    <input class="submit custom_btn" type="submit" value="Submit">
 								</div>
 								<div class="col-sm-5 p-init"></div>
 							</div>
 						</form>
 				</div>
 			</div>
-		</div>
+        </div>
+        
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+        <script type="text/javascript">
+            $.validator.setDefaults({
+                submitHandler: function(e) {
+                    // e.preventDefault();
+                    // alert("submitted!");
+
+                    var formData = {
+                        'first_name': $('input[name=first_name]').val(),
+                        'last_name': $('input[name=last_name]').val(),
+                        'company': $('input[name=company]').val(),
+                        'title': $('input[name=title]').val(),
+                        'phone': $('input[name=phone]').val(),
+                        'Country': $('select[name=first_name]').val(),
+                        'Reason_for_Contacting': $('select[name=Reason_for_Contacting]').val(),
+                        'comments_and_inquiries': $('textarea[name=comments_and_inquiries]').val()
+                    };
+                    console.log(formData);
+                }
+            });
+            $(document).ready(function() {
+                $("#testForm").validate({
+                    rules: {
+                        first_name: "required",
+                        last_name: "required",
+                        company: "required",
+                        Reason_for_Contacting: "required",
+                        comments_and_inquiries: {
+                            required: true,
+                            minlength: 10
+                        },
+                        work_email: {
+                            required: true,
+                            email: true
+                        }
+                    },
+                    messages: {
+                        first_name: "Please enter your First Name",
+                        last_name: "Please enter your Last Name",
+                        company: "Please enter your Company Name",
+                        Reason_for_Contacting: "Please select reason for contacting",
+                        comments_and_inquiries: {
+                            required: "Comment is required",
+                            minlength: "Your Comment must be of least 10 characters"
+                        },
+                        work_email: "Please enter a valid email address"
+                    },
+                    errorElement: "em",
+                    errorPlacement: function(error, element) {
+                        // Add the `help-block` class to the error element
+                        error.addClass("help-block");
+
+                        if (element.prop("type") === "checkbox") {
+                            error.insertAfter(element.parent("label"));
+                        } else {
+                            error.insertAfter(element);
+                        }
+                    },
+                    highlight: function(element, errorClass, validClass) {
+                        $(element).parents(".col-sm-5").addClass("has-error").removeClass("has-success");
+                    },
+                    unhighlight: function(element, errorClass, validClass) {
+                        $(element).parents(".col-sm-5").addClass("has-success").removeClass("has-error");
+                    }
+                });
+            });
+        </script>
 	</body>
 </html>
