@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Custome checkbox</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"> -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style type="text/css">
+                .multiselect {
+                    width: 240px;
+                    margin: 5em auto;
+                    text-align: center;
+                }
+
+                .multiselect button{
+                    position: relative;
+                    width: 120px;
+                    margin: 0 auto;
+                    border: 2px solid #e2e2e2;
+                    /* border-bottom: none; */
+                    background-color: #ffffff;
+                    font-weight: bold;
+                    height: 40px;
+                    text-align: center;
+
+                }
+
+                .multiselect button:focus {
+                    outline:0;
+                }
+
+                #checkboxes {
+                    display: none;
+                    border: 2px solid #e2e2e2;
+                    padding: 1em;
+                    margin-top: -2px;
+                }
+
+                #checkboxes label {
+                    display: block;
+                    margin-bottom: 1em;
+                    color: #7d6c8e;
+                    text-align: left;;
+                }
+
+                #checkboxes label:last-child{
+                    margin-bottom: 0;
+                }
+
+                #checkboxes input{
+                    margin-right: 0.5em;
+                    margin-top: 0;
+                }
+
+                input[type=checkbox] { display:none; }
+                input[type=checkbox] + label:before {
+                    font-family: FontAwesome;
+                    display: inline-block;
+                    border: 2px solid #7d6c8e;
+                    width: 12px;
+                    height: 14px;
+                    line-height: 14px;
+                    text-align: center;
+                    margin-right: 0.5em;
+                    border-radius: 5px;
+                    vertical-align: bottom;
+                    font-size: 13px;
+                    padding-left: 2px;
+                }
+
+                input[type=checkbox] + label:before { content: ""; }
+                input[type=checkbox] + label:before { letter-spacing: 10px; }
+
+                input[type=checkbox]:checked + label:before { content: "\f00d"; }
+                input[type=checkbox]:checked + label:before { letter-spacing: 5px; }
+        </style>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+        <script type="text/javascript">
+            var expanded = false;
+
+            function showCheckboxes() {
+            var checkboxes = document.getElementById("checkboxes");
+            var sectorButton = document.getElementById("sectorButton");
+                if (!expanded) {
+                    checkboxes.style.display = "block";
+                    sectorButton.style.borderBottom = "0px"
+                    expanded = true;
+                } else {
+                    checkboxes.style.display = "none";
+                    sectorButton.style.borderBottom = "2px solid #e2e2e2"
+                    expanded = false;
+                }
+            }
+
+            function getValue() {
+                var checks = document.getElementsByClassName('sectorCheckBoxex');
+                var tempVal = '';
+                for ( i = 0; i < checks.length; i++) {
+                    tempVal = checks[i].value;
+                    if ( checks[i].checked === true ) {
+                        sessionStorage.setItem(tempVal,tempVal);
+                    } else {
+                        sessionStorage.removeItem(tempVal);
+                    }
+                }
+            }
+
+        </script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 custom_checkbox">
+                    <form>
+                        <div class="multiselect">
+                            <button type="button" name="sectorButton" id="sectorButton" onclick="showCheckboxes()">Sector <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                            <div id="checkboxes">
+                                <input class="sectorCheckBoxex" id="box1" type="checkbox" onclick="getValue()" value="box1" />
+                                <label for="box1">Checkbox 1</label>
+                                <input class="sectorCheckBoxex" id="box2" type="checkbox" onclick="getValue()" value="box2" />
+                                <label for="box2">Checkbox 2</label>
+                                <input class="sectorCheckBoxex" id="box3" type="checkbox" onclick="getValue()" value="box3" />
+                                <label for="box3">Checkbox 3</label>
+                            </div>
+                        </div>
+                    </form>
+                    <br/><br/>
+                    <!-- <a href="#" onclick="getValue();return false;">Get Value</a> -->
+                </div>
+                <div class="col-md-4"></div>
+			</div>
+		</div>
+	</body>
+</html>
